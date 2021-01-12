@@ -1,0 +1,23 @@
+server:
+  port: 9527
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+  instance:
+    instance-id: zuul-9527.com
+    prefer-ip-address: true
+spring:
+  application:
+    name: springcloud-zuul-9527
+info:
+  app.name: com.lwh
+  company: feiniu
+
+zuul:
+  routes:
+    mydept.serviceid: springcloud-provider-dept
+    mydept.path: /mydept/**
+  ignored-services: springcloud-provider-dept
